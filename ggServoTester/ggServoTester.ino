@@ -8,7 +8,7 @@
 #define LED_B_PIN 8
 #define LED_C_PIN 7
 #define LED_D_PIN 6
-#define LED_BLUE_PIN 13
+#define LED_LIMIT_PIN 13
 
 class ggKey : public ggButton
 {
@@ -71,13 +71,13 @@ const int mAngleStep = 4;
 int mAngle = mAngleCenter;
 int mAngleSet = mAngleCenter;
 
-void SetLEDs(bool aA, bool aB, bool aC, bool aD, bool aBlue)
+void SetLEDs(bool aA, bool aB, bool aC, bool aD, bool aLimit)
 {
   digitalWrite(LED_A_PIN, aA);
   digitalWrite(LED_B_PIN, aB);
   digitalWrite(LED_C_PIN, aC);
   digitalWrite(LED_D_PIN, aD);
-  digitalWrite(LED_BLUE_PIN, aBlue);
+  digitalWrite(LED_LIMIT_PIN, aLimit);
 }
 
 void DisplayAngle()
@@ -101,7 +101,7 @@ void setup()
   #ifdef _DEBUG_
   Serial.begin(115200);
   #endif
-  pinMode(LED_BLUE_PIN, OUTPUT);
+  pinMode(LED_LIMIT_PIN, OUTPUT);
   pinMode(LED_A_PIN, OUTPUT);
   pinMode(LED_B_PIN, OUTPUT);
   pinMode(LED_C_PIN, OUTPUT);
@@ -138,4 +138,3 @@ void loop()
     }
   }
 }
-
